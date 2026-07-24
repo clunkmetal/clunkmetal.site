@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Официальный сайт группы Clunk</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #0d0d11; color: #f5f5f7; line-height: 1.6; }
+        
+        /* Шапка сайта */
+        header { 
+            background: linear-gradient(180deg, rgba(13,13,17,0.4) 0%, rgba(13,13,17,1) 100%), 
+                        url('https://unsplash.com') no-repeat center center/cover; 
+            height: 70vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding: 0 20px;
+        }
+        header h1 { font-size: 4rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: #00fff0; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,255,240,0.4); }
+        header p { font-size: 1.3rem; color: #a1a1aa; max-width: 600px; }
+        
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        section { margin-bottom: 70px; }
+        h2 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; color: #ff007f; border-left: 5px solid #ff007f; padding-left: 15px; }
+        
+        /* Стриминги (Музыка) */
+        .streaming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .stream-btn { display: flex; align-items: center; justify-content: center; padding: 18px; border-radius: 12px; font-weight: bold; text-decoration: none; color: #fff; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); font-size: 1.1rem; }
+        .stream-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        
+        /* Цвета брендов (вставьте свои ссылки вместо #) */
+        .yandex { background: #ffcc00; color: #000; border: none; }
+        .yandex:hover { background: #ffe066; }
+        .vk { background: #0077ff; }
+        .vk:hover { background: #3399ff; }
+        .zvuk { background: #1a1a1a; border-color: #00ff66; color: #00ff66; }
+        .zvuk:hover { background: #00ff66; color: #000; }
+        .spotify { background: #1ed760; color: #000; border: none; }
+        .spotify:hover { background: #43e57d; }
+        .apple { background: #fc3c44; }
+        .apple:hover { background: #ff666d; }
+
+        /* Концерты (Афиша) */
+        .tour-list { background: #16161e; border-radius: 16px; padding: 10px; border: 1px solid rgba(255,255,255,0.05); }
+        .tour-row { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tour-row:last-child { border-bottom: none; }
+        .tour-info { display: flex; flex-direction: column; }
+        .tour-date { font-size: 1.2rem; font-weight: 800; color: #00fff0; }
+        .tour-place { font-size: 1.1rem; font-weight: 600; margin-top: 4px; }
+        .tour-club { color: #71717a; font-size: 0.95rem; }
+        .btn-action { background: linear-gradient(45deg, #ff007f, #7928ca); color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1rem; transition: 0.3s; text-align: center; }
+        .btn-action:hover { opacity: 0.9; transform: scale(1.02); }
+
+        /* Мерч */
+        .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .merch-item { background: #16161e; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); text-align: center; padding-bottom: 20px; transition: 0.3s; }
+        .merch-item:hover { transform: translateY(-5px); }
+        .merch-img { width: 100%; height: 260px; background: #23232f; display: flex; align-items: center; justify-content: center; color: #4b4b63; font-size: 1.3rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        .merch-title { font-size: 1.2rem; font-weight: 600; margin: 20px 0 5px; padding: 0 15px; }
+        .merch-price { color: #ff007f; font-weight: 800; font-size: 1.3rem; margin-bottom: 20px; }
+        .merch-item .btn-action { display: inline-block; width: 85%; }
+        
+        footer { text-align: center; padding: 60px 0 40px; color: #3f3f46; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>НАЗВАНИЕ ГРУППЫ</h1>
+        <p>Слушайте новый сингл на всех цифровых площадках и забирайте билеты на тур!</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- СЛУШАТЬ МУЗЫКУ -->
+        <section>
+            <h2>Слушать альбом</h2>
+            <div class="streaming-grid">
+                <!-- Вставьте ваши ссылки вместо знака # в href="..." -->
+                <a href="#" target="_blank" class="stream-btn yandex">Яндекс Музыка</a>
+                <a href="#" target="_blank" class="stream-btn vk">VK Музыка</a>
+                <a href="#" target="_blank" class="stream-btn zvuk">Звук</a>
+                <a href="#" target="_blank" class="stream-btn spotify">Spotify</a>
+                <a href="#" target="_blank" class="stream-btn apple">Apple Music</a>
+            </div>
+        </section>
+
+        <!-- АФИША КОНЦЕРТОВ -->
+        <section>
+            <h2>Концерты</h2>
+            <div class="tour-list">
+                
+                <div class="tour-row">
+                    <div class="tour-info">
+                        <span class="tour-date">25 СЕНТЯБРЯ</span>
+                        <span class="tour-place">Москва</span>
+                        <span class="tour-club">Клуб «Base»</span>
+                    </div>
+                    <!-- Ссылка на покупку билетов -->
+                    <a href="#" target="_blank" class="btn-action">Билеты</a>
+                </div>
+
+                <div class="tour-row">
+                    <div class="tour-info">
+                        <span class="tour-date">28 СЕНТЯБРЯ</span>
+                        <span class="tour-place">Санкт-Петербург</span>
+                        <span class="tour-club">Клуб «Космонавт»</span>
+                    </div>
+                    <a href="#" target="_blank" class="btn-action">Билеты</a>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- МЕРЧ -->
+        <section>
+            <h2>Мерч</h2>
+            <div class="merch-grid">
+                
+                <div class="merch-item">
+                    <div class="merch-img">Футболка</div>
+                    <div class="merch-title">Оверсайз футболка «Лого»</div>
+                    <div class="merch-price">2 500 ₽</div>
+                    <!-- Ссылка на вашу группу ВК или диалог для заказа -->
+                    <a href="#" target="_blank" class="btn-action">Купить в VK</a>
+                </div>
+
+                <div class="merch-item">
+                    <div class="merch-img">Худи</div>
+                    <div class="merch-title">Зип-худи «Тур 2026»</div>
+                    <div class="merch-price">4 500 ₽</div>
+                    <a href="#" target="_blank" class="btn-action">Купить в VK</a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 НАЗВАНИЕ ГРУППЫ. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
