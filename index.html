@@ -16,7 +16,6 @@
         p, span, a, div { font-family: 'Arial', sans-serif; }
 
         body { 
-            /* ЧЕРНЫЙ ФОН И СИЛЬНО ЗАТЕМНЕННАЯ ТЕКСТУРНАЯ ФОТОГРАФИЯ НА ЗАДНЕМ ПЛАНЕ */
             background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), 
                         url('https://unsplash.com') no-repeat center center/cover;
             background-attachment: fixed;
@@ -37,7 +36,7 @@
 
         /* ОСНОВНОЙ КОНТЕЙНЕР ДЛЯ ВСЕХ БЛОКОВ */
         .container { max-width: 1000px; margin: 0 auto; padding: 120px 20px 40px; }
-        section { padding-top: 60px; margin-bottom: 60px; }
+        section { padding-top: 80px; margin-bottom: 40px; }
         h2 { font-size: 2.5rem; margin-bottom: 40px; color: #ffffff; }
 
         /* СЕКЦИЯ: ИНФОРМАЦИЯ */
@@ -45,7 +44,7 @@
         .info-logo { font-size: 5rem; color: #ffffff; letter-spacing: 8px; line-height: 1; margin-bottom: 10px; }
         .info-sub { font-size: 1.1rem; color: #555555; text-transform: uppercase; letter-spacing: 4px; }
 
-        /* ПРОСТАЯ И НАДЕЖНАЯ ГАЛЕРЕЯ ВМЕСТО СЛОЖНОЙ КАРУСЕЛИ */
+        /* ПРОСТАЯ И НАДЕЖНАЯ ГАЛЕРЕЯ */
         .photo-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 40px 0; }
         .photo-gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); filter: grayscale(40%) brightness(65%); }
 
@@ -66,7 +65,7 @@
         .tour-title { font-size: 1.4rem; color: #ffffff; font-weight: bold; }
         .tour-desc { color: #71717a; font-size: 0.95rem; line-height: 1.5; }
         
-        /* СТРОГИЕ ЧЕРНО-БЕЛЫЕ КНОПКИ */
+        /* КНОПКИ БИЛЕТОВ И МЕРЧА */
         .btn-ticket { background: #ffffff; color: #000000; padding: 14px 28px; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; text-align: center; border: none; cursor: pointer; display: inline-block; border-radius: 2px; }
         .btn-ticket:hover { background: #555555; color: #ffffff; }
 
@@ -132,13 +131,13 @@
 
             <!-- ГАЛЕРЕЯ ФОТОГРАФИЙ ГРУППЫ -->
             <div class="photo-gallery">
-                <!-- МЕНЯТЬ ТУТ: Замените ссылки в src="Ссылка" на свои фотографии -->
+                <!-- МЕНЯТЬ ТУТ: Замените ссылки на свои фотографии -->
                 <img src="https://unsplash.com" alt="Band 1">
                 <img src="https://unsplash.com" alt="Band 2">
                 <img src="https://unsplash.com" alt="Band 3">
             </div>
 
-            <!-- УЧАСТНИКИ КОЛЛЕКТИВА -->
+            <!-- СОСТАВ КОЛЛЕКТИВА -->
             <h3 class="members-title">Состав коллектива</h3>
             <div class="members-grid">
                 
@@ -147,3 +146,7 @@
                     <img src="https://unsplash.com" class="member-img" alt="Vocal">
                     <div class="member-name">Имя</div>
                     <div class="member-role">Вокал</div>
+                </div>
+                
+                <!-- Участник 2 -->
+                <div class="member-card">
