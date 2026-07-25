@@ -4,122 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLUNK | Official Website</title>
-    <!-- Подключение иконок для соцсетей и стримингов. НЕ УДАЛЯТЬ -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Impact', 'Arial Black', sans-serif; scroll-behavior: smooth; }
+        /* БАЗОВАЯ НАСТРОЙКА СТИЛЕЙ */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         
-        /* ==========================================
-           НАСТРОЙКА ЦВЕТОВ И ФОНА САЙТА
-           ========================================== */
+        h1, h2, h3, .nav-logo, .nav-links a, .info-logo { 
+            font-family: 'Impact', 'Arial Black', sans-serif; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+        p, span, a, div { font-family: 'Arial', sans-serif; }
+
         body { 
-            /* Фон сайта: url('ссылка') — картинка. rgba(0,0,0, 0.85) — это уровень затемнения черным цветом (0.85 = 85% темноты) */
+            /* ЧЕРНЫЙ ФОН И СИЛЬНО ЗАТЕМНЕННАЯ ТЕКСТУРНАЯ ФОТОГРАФИЯ НА ЗАДНЕМ ПЛАНЕ */
             background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.95)), 
                         url('https://unsplash.com') no-repeat center center/cover;
-            background-attachment: fixed; /* Эффект, когда фон стоит на месте при скролле */
-            color: #d4d4d8; /* Основной цвет текста (светло-серый) */
+            background-attachment: fixed;
+            color: #d4d4d8; 
             line-height: 1.6; 
         }
-        
-        /* Шрифт для обычного текста, чтобы он оставался читаемым и аккуратным */
-        input, text, p, span, a { font-family: 'Arial', sans-serif; } 
 
-        /* Цвет тонких горизонтальных линий-разделителей */
+        /* ТОНКИЕ РАЗДЕЛИТЕЛЬНЫЕ ЛИНИИ МЕЖДУ СЕКЦИЯМИ */
         .border-line { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 
-        /* Шапка навигации (меню сверху) */
-        nav { 
-            position: fixed; top: 0; left: 0; width: 100%; 
-            background: rgba(5, 5, 5, 0.9); /* Цвет плашки меню (почти черный) с прозрачностью 90% */
-            z-index: 1000; backdrop-filter: blur(5px); 
-        }
+        /* ВЕРХНЯЯ ПАНЕЛЬ МЕНЮ (НАВИГАЦИЯ) */
+        nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(5, 5, 5, 0.95); z-index: 1000; backdrop-filter: blur(5px); }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-        .nav-logo { font-size: 1.6rem; letter-spacing: 3px; color: #ffffff; text-transform: uppercase; text-decoration: none; font-weight: 900; }
+        .nav-logo { font-size: 1.6rem; color: #ffffff; text-decoration: none; }
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { color: #888888; /* Цвет ссылок в меню по умолчанию (серый) */ text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; transition: 0.3s; }
-        .nav-links a:hover { color: #ffffff; /* Цвет ссылки в меню при наведении (белый) */ }
+        .nav-links a { color: #888888; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: #ffffff; }
 
+        /* ОСНОВНОЙ КОНТЕЙНЕР ДЛЯ ВСЕХ БЛОКОВ */
         .container { max-width: 1000px; margin: 0 auto; padding: 120px 20px 40px; }
-        section { padding-top: 40px; margin-bottom: 80px; }
-        
-        /* Заголовки секций (ИНФОРМАЦИЯ, МУЗЫКА и т.д.) */
-        h2 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; color: #ffffff; text-align: left; }
+        section { padding-top: 60px; margin-bottom: 60px; }
+        h2 { font-size: 2.5rem; margin-bottom: 40px; color: #ffffff; }
 
-        /* СТИЛИ: ИНФОРМАЦИЯ */
+        /* СЕКЦИЯ: ИНФОРМАЦИЯ */
         .info-center { text-align: center; margin-bottom: 50px; }
-        .info-logo { font-size: 5rem; letter-spacing: 10px; color: #ffffff; text-transform: uppercase; line-height: 1; margin-bottom: 15px; }
-        .info-sub { font-size: 1.1rem; color: #666666; letter-spacing: 4px; text-transform: uppercase; }
+        .info-logo { font-size: 5rem; color: #ffffff; letter-spacing: 8px; line-height: 1; margin-bottom: 10px; }
+        .info-sub { font-size: 1.1rem; color: #555555; text-transform: uppercase; letter-spacing: 4px; }
 
-        /* СТИЛИ: Карусель фотографий */
-        .carousel-container { position: relative; width: 100%; height: 450px; margin: 40px 0; overflow: hidden; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
-        .carousel-slide { display: none; width: 100%; height: 100%; }
-        /* Эффект для фото в карусели: убрано 40% цвета (grayscale) и они затемнены до 70% (brightness) чтобы вписываться в стиль */
-        .carousel-slide img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%) brightness(70%); }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: #ffffff; font-size: 2rem; padding: 10px 15px; cursor: pointer; transition: 0.3s; z-index: 10; font-family: sans-serif; }
-        .carousel-btn:hover { background: rgba(255,255,255,0.15); }
-        .prev { left: 0; } .next { right: 0; }
+        /* ПРОСТАЯ И НАДЕЖНАЯ ГАЛЕРЕЯ ВМЕСТО СЛОЖНОЙ КАРУСЕЛИ */
+        .photo-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 40px 0; }
+        .photo-gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); filter: grayscale(40%) brightness(65%); }
 
-        /* СТИЛИ: Блок участников */
-        .members-title { font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; margin: 50px 0 25px; color: #ffffff; }
+        /* СОСТАВ ГРУППЫ */
+        .members-title { font-size: 1.8rem; margin: 50px 0 25px; color: #ffffff; }
         .members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .member-card { background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(255,255,255,0.05); padding: 15px; text-align: center; border-radius: 4px; }
-        .member-img { width: 100%; aspect-ratio: 1/1; background: #111111; object-fit: cover; filter: grayscale(100%); margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; color: #444444; font-size: 0.9rem; text-transform: uppercase; }
-        .member-name { font-size: 1.3rem; letter-spacing: 1px; color: #ffffff; text-transform: uppercase; }
-        .member-role { font-size: 0.9rem; color: #666666; text-transform: uppercase; margin-top: 3px; letter-spacing: 1px; }
+        .member-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; filter: grayscale(100%); margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.03); }
+        .member-name { font-size: 1.3rem; color: #ffffff; margin-bottom: 3px; }
+        .member-role { font-size: 0.9rem; color: #555555; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* СТИЛИ: МУЗЫКА */
-        .album-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; background: rgba(15, 15, 15, 0.6); padding: 35px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 40px; align-items: top; }
+        /* СЕКЦИЯ: АФИША */
+        .tour-card { display: grid; grid-template-columns: 150px 1fr auto; gap: 30px; background: rgba(15, 15, 15, 0.6); padding: 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px; align-items: center; }
+        @media (max-width: 768px) { .tour-card { grid-template-columns: 1fr; text-align: center; } .tour-img { margin: 0 auto; } .btn-ticket { width: 100%; } }
+        .tour-img { width: 150px; height: 150px; object-fit: cover; border: 1px solid rgba(255,255,255,0.05); }
+        .tour-details { display: flex; flex-direction: column; gap: 8px; }
+        .tour-date { font-size: 1.3rem; color: #ffffff; font-weight: bold; }
+        .tour-title { font-size: 1.4rem; color: #ffffff; font-weight: bold; }
+        .tour-desc { color: #71717a; font-size: 0.95rem; line-height: 1.5; }
+        
+        /* СТРОГИЕ ЧЕРНО-БЕЛЫЕ КНОПКИ */
+        .btn-ticket { background: #ffffff; color: #000000; padding: 14px 28px; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; text-align: center; border: none; cursor: pointer; display: inline-block; border-radius: 2px; }
+        .btn-ticket:hover { background: #555555; color: #ffffff; }
+
+        /* СЕКЦИЯ: МУЗЫКА */
+        .album-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; background: rgba(15, 15, 15, 0.6); padding: 35px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 40px; align-items: start; }
         @media (max-width: 768px) { .album-grid { grid-template-columns: 1fr; } .album-cover { order: -1; } }
         .track-list { display: flex; flex-direction: column; gap: 14px; }
         .track-item { display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.03); color: #cccccc; font-size: 1rem; }
         .track-item span:last-child { color: #555555; }
-        .album-cover { background: #111111; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); width: 100%; aspect-ratio: 1/1; }
-        .album-cover img { width: 100%; height: 100%; object-fit: cover; }
-        .album-cover i { font-size: 4rem; color: #444444; margin-bottom: 15px; }
-        .album-cover h3 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; }
+        .album-cover { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
 
-        /* Стриминговые кнопки */
+        /* КНОПКИ СТРИМИНГОВ */
         .streaming-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-        .stream-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 4px; font-weight: bold; text-decoration: none; color: #888888; transition: 0.3s; font-size: 0.95rem; background: rgba(15, 15, 15, 0.6); border: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 1px; }
-        .stream-btn:hover { 
-            background: #ffffff; /* Цвет кнопки стриминга при наведении (белый) */ 
-            color: #000000; /* Цвет текста внутри кнопки при наведении (черный) */
-            border-color: #ffffff; 
-        }
-        .stream-btn i { font-size: 1.2rem; }
+        .stream-btn { display: flex; align-items: center; justify-content: center; padding: 14px; border-radius: 4px; font-weight: bold; text-decoration: none; color: #888888; transition: 0.3s; font-size: 0.95rem; background: rgba(15, 15, 15, 0.6); border: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 1px; }
+        .stream-btn:hover { background: #ffffff; color: #000000; border-color: #ffffff; }
 
-        /* СТИЛИ: АФИША */
-        .tour-card { display: grid; grid-template-columns: 150px 1fr auto; gap: 30px; background: rgba(15, 15, 15, 0.6); padding: 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 25px; align-items: center; }
-        @media (max-width: 768px) { .tour-card { grid-template-columns: 1fr; text-align: center; } .tour-img { margin: 0 auto; } .btn-ticket { width: 100%; } }
-        .tour-img { width: 150px; height: 150px; background: #111111; object-fit: cover; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #444444; font-size: 0.85rem; text-transform: uppercase; font-weight: bold; }
-        .tour-details { display: flex; flex-direction: column; gap: 8px; }
-        .tour-date { font-size: 1.3rem; color: #ffffff; letter-spacing: 1px; }
-        .tour-title { font-size: 1.4rem; color: #ffffff; }
-        .tour-desc { color: #71717a; font-size: 0.95rem; line-height: 1.5; }
-        
-        /* Кнопки "Билеты" и "Купить" */
-        .btn-ticket { 
-            background: #ffffff; /* Цвет кнопки в обычном состоянии (белый) */
-            color: #000000; /* Цвет текста на кнопке (черный) */
-            padding: 14px 28px; text-decoration: none; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; text-align: center; border: none; 
-        }
-        .btn-ticket:hover { 
-            background: #555555; /* Цвет кнопки при наведении мыши (темно-серый) */
-            color: #ffffff; /* Цвет текста при наведении (белый) */
-        }
-
-        /* СТИЛИ: МЕРЧ */
+        /* СЕКЦИЯ: МЕРЧ */
         .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
         .merch-item { background: rgba(15, 15, 15, 0.6); border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); text-align: center; padding-bottom: 25px; }
-        .merch-img { width: 100%; height: 280px; background: #111111; display: flex; align-items: center; justify-content: center; color: #444444; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        .merch-title { font-size: 1.3rem; margin: 20px 0 5px; padding: 0 15px; color: #ffffff; letter-spacing: 1px; }
+        .merch-img { width: 100%; height: 280px; object-fit: cover; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .merch-title { font-size: 1.3rem; margin: 20px 0 5px; padding: 0 15px; color: #ffffff; }
         .merch-price { color: #888888; font-size: 1.2rem; margin-bottom: 20px; font-weight: bold; }
         .merch-item .btn-ticket { display: inline-block; width: 85%; }
 
-        /* СТИЛИ: ПОДВАЛ (ФУТЕР) */
-        footer { 
-            background: rgba(5, 5, 5, 0.95); padding: 40px 0; 
-            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия над подвалом */
-        }
+        /* ПОДВАЛ (ФУТЕР) */
+        footer { background: rgba(5, 5, 5, 0.95); padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
         .footer-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        @media (max-width: 600px) { .footer-container { flex-direction: column; gap: 25px; text-align: center; } }
+        
+        .footer-socials { display: flex; gap: 15px; }
+        .social-btn { display: flex; align-items: center; justify-content: center; padding: 10px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); color: #888888; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-weight: bold; transition: 0.3s; text-transform: uppercase; }
+        .social-btn:hover { background: rgba(255, 255, 255, 0.15); color: #ffffff; border-color: #ffffff; }
+        
+        .footer-email { color: #888888; text-decoration: none; font-size: 1rem; letter-spacing: 1px; transition: 0.3s; font-weight: bold; }
+        .footer-email:hover { color: #ffffff; }
+    </style>
+</head>
+<body>
+
+    <!-- ВЕРХНЕЕ МЕНЮ (НАВИГАЦИЯ) -->
+    <nav class="border-line">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">CLUNKMETAL</a>
+            <ul class="nav-links">
+                <li><a href="#info">Информация</a></li>
+                <li><a href="#tour">Афиша</a></li>
+                <li><a href="#music">Музыка</a></li>
+                <li><a href="#merch">Мерч</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- ==========================================
+           СЕКЦИЯ: ИНФОРМАЦИЯ
+           ========================================== -->
+        <section id="info" class="border-line">
+            <div class="info-center">
+                <div class="info-logo">CLUNKMETAL</div>
+                <div class="info-sub">Alternative Metal / Moscow</div>
+            </div>
+
+            <!-- ГАЛЕРЕЯ ФОТОГРАФИЙ ГРУППЫ -->
+            <div class="photo-gallery">
+                <!-- МЕНЯТЬ ТУТ: Замените ссылки в src="Ссылка" на свои фотографии -->
+                <img src="https://unsplash.com" alt="Band 1">
+                <img src="https://unsplash.com" alt="Band 2">
+                <img src="https://unsplash.com" alt="Band 3">
+            </div>
+
+            <!-- УЧАСТНИКИ КОЛЛЕКТИВА -->
+            <h3 class="members-title">Состав коллектива</h3>
+            <div class="members-grid">
+                
+                <!-- Участник 1. МЕНЯТЬ ТУТ: Фото (src), Имя и Роль -->
+                <div class="member-card">
+                    <img src="https://unsplash.com" class="member-img" alt="Vocal">
+                    <div class="member-name">Имя</div>
+                    <div class="member-role">Вокал</div>
