@@ -383,7 +383,40 @@ footer{
 
 /* ===================== АДАПТИВ ДЛЯ МОБИЛЬНЫХ ===================== */
 @media (max-width: 640px){
+
+  /* шапка: лого и вкладки переносятся друг под друга */
   header{ padding: 14px 18px; flex-direction:column; gap: 12px; }
+
+  /* текст рядом с лого - убираем полосочку слева, она смотрится криво в столбик */
+  .header-tag{ border-left:none; padding-left:0; }
+
+  /* вкладки-кнопки переносятся на новую строку, если не влезают */
+  nav{ flex-wrap:wrap; justify-content:center; }
+  .tab-btn{ font-size:15px; padding:8px 12px; }
+
+  /* большое лого-название по центру - уменьшаем, а то не влезает */
   .info-hero h1{ font-size: 56px; letter-spacing:6px; }
+
   main{ padding: 40px 16px 80px; }
+
+  /* карусель фото - кнопки поменьше */
+  .carousel-btn{ width:30px; height:30px; font-size:14px; }
+
+  /* сетка участников - по 2 в ряд вместо 5 в ряд */
+  .members{ grid-template-columns: repeat(2, 1fr); gap:20px; }
+
+  /* альбом: обложка и трек-лист - в столбик, обложка на всю ширину */
+  .album{ flex-direction:column; gap:24px; }
+  .album img{ width:100%; height:auto; aspect-ratio:1/1; }
+  .album-info h3{ font-size:26px; }
+
+  /* афиша: фото и текст события - в столбик */
+  .event-card{ flex-direction:column; }
+  .event-card img{ width:100%; height:auto; aspect-ratio:4/3; }
+
+  /* мерч: карточки по одной в ряд */
+  .merch-grid{ grid-template-columns: 1fr; }
+
+  /* футер: соцсети и почта - в столбик по центру */
+  footer{ flex-direction:column; text-align:center; padding: 22px 20px; }
 }
