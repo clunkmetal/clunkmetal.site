@@ -70,7 +70,7 @@ header{
 
 /* Логотип в углу - сейчас текстом, можно заменить на <img> */
 .logo-corner{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   font-size: 28px;
   letter-spacing: 3px;
   color: var(--text-main);
@@ -101,7 +101,7 @@ nav{ display:flex; gap: 6px; }
 .tab-btn{
   background:none;
   border:none;
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   letter-spacing: 2px;
   font-size: 18px;
   color: var(--text-dim);
@@ -136,7 +136,7 @@ main{ max-width: 1100px; margin: 0 auto; padding: 60px 30px 100px; }
 }
 
 h2.section-title{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   font-size: 22px;
   letter-spacing: 4px;
   color: var(--text-dim);
@@ -150,7 +150,7 @@ h2.section-title{
 }
 /* Большое лого по центру - замени текст CLUNK своим названием или вставь <img> */
 .info-hero h1{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   font-size: 96px;
   letter-spacing: 10px;
   line-height:1;
@@ -209,7 +209,7 @@ h2.section-title{
   border: 1px solid var(--line);
 }
 .member h3{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   letter-spacing: 2px;
   font-size: 18px;
   margin-top: 12px;
@@ -232,7 +232,7 @@ h2.section-title{
 }
 .album-info{ flex:1; min-width: 240px; }
 .album-info h3{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   font-size: 34px;
   letter-spacing: 2px;
 }
@@ -289,13 +289,13 @@ h2.section-title{
 }
 .event-info{ flex:1; min-width: 220px; display:flex; flex-direction:column; }
 .event-info .date{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   letter-spacing:2px;
   color: var(--accent-bright);
   font-size: 20px;
 }
 .event-info h3{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   font-size: 26px;
   letter-spacing:1px;
   margin: 6px 0 10px;
@@ -320,7 +320,7 @@ h2.section-title{
 }
 .merch-body{ padding: 16px; }
 .merch-body h3{
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   letter-spacing:1px;
   font-size: 18px;
 }
@@ -344,7 +344,7 @@ h2.section-title{
   padding: 80px 20px;
   border: 1px dashed var(--line);
   color: var(--text-dim);
-  font-family:'Anton', sans-serif;
+  font-family:'Rubik Glitch', sans-serif;
   letter-spacing: 3px;
   font-size: 20px;
 }
