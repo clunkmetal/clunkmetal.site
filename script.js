@@ -2,18 +2,28 @@
 // Находим все кнопки-вкладки в шапке (ИНФОРМАЦИЯ / АФИША / МУЗЫКА / МЕРЧ)
 const tabs = document.querySelectorAll('.tab-btn');
 
+// вынесли переключение вкладки в отдельную функцию, чтобы вызывать её и по клику, и по ссылке
+function openTab(target){
+  tabs.forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+  document.querySelector(`.tab-btn[data-target="${target}"]`).classList.add('active');
+  document.getElementById(target).classList.add('active');
+}
+
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
-    // убираем активный класс со всех вкладок и секций
-    tabs.forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-
-    // включаем нужную вкладку и соответствующую ей секцию
-    // (связь идёт через data-target в HTML, который совпадает с id секции)
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.target).classList.add('active');
+    openTab(tab.dataset.target);
+    // записываем в адресную строку #music, #afisha и т.д. без перезагрузки страницы
+    history.pushState(null, '', '#' + tab.dataset.target);
   });
 });
+
+// при открытии сайта с готовой ссылкой (например clunk.ru/#afisha) - сразу открыть нужную вкладку
+const hashTab = window.location.hash.replace('#', '');
+if (hashTab && document.getElementById(hashTab)) {
+  openTab(hashTab);
+}
 
 // ===================== КАРУСЕЛЬ ФОТО (вкладка "Информация") =====================
 let carouselIndex = 0; // текущий индекс показанного фото
